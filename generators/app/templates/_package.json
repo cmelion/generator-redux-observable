@@ -25,17 +25,10 @@
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
     "lint": "eslint src",
     "postinstall": "./node_modules/protractor/bin/webdriver-manager update",
-    "preinstall": "npm link test/helpers/ajax-helper",
     "rimraf": "rimraf",
     "server": "json-server --watch --delay 500 json-server/db.json --id _id --port $npm_package_config_apiPort --routes routes.json",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "test": "mocha ./test/index.jsx --compilers js:babel-core/register  && npm run lint",
-    "eb-docker": "chmod u+x ./tasks/eb-docker.js & ./tasks/eb-docker.js --appName tavern-client --buildNumber $BUILD_NUMBER",
-    "eb-bundle:beta": "cd deployment && zip -r ./build.zip Dockerrun.aws.json .ebextensions/02_beta_env_variables.config",
-    "bump-version:patch": "chmod u+x ./tasks/bump-version.js & ./tasks/bump-version.js",
-    "bump-version:minor": "chmod u+x ./tasks/bump-version.js & ./tasks/bump-version.js --bump=minor",
-    "bump-version:major": "chmod u+x ./tasks/bump-version.js & ./tasks/bump-version.js --bump=major",
-    "bump-version:commit": "git commit -am 'version bump'"
   },
   "repository": {
     "type": "git",
