@@ -82,12 +82,6 @@ module.exports = generators.Base.extend({
             },
             {
                 type: 'input',
-                name: 'serverhostname',
-                message: 'What is the server host name for your project?',
-                default: this.mixins.hostify(this.appname)
-            },
-            {
-                type: 'input',
                 name: 'clientFolder',
                 message: 'In which folder would you like your scripts?',
                 default: 'src'
@@ -114,7 +108,6 @@ module.exports = generators.Base.extend({
         this.config.set('appShortName', this.appname.split('-')[0]);
         this.config.set('clientFolder', this.answers.clientFolder);
         this.config.set('testFolder', 'test');
-        this.config.set('deployFolder', 'deploy');
         this.config.set('serverhostname', this.answers.serverhostname);
         this.composeWith(this.mixins.getGeneratorShortname() + ':target', {
             //args: this.options.target ? [this.options.target] : null,
@@ -131,11 +124,6 @@ module.exports = generators.Base.extend({
         this.mixins.createDirSync(this.destinationPath(this.answers.clientFolder));
         //this.mixins.createDirSync('test');
         //this.fs.write(this.destinationPath('test/.gitignore'), '');
-
-        this.fs.copy(
-            this.templatePath('deployment'),
-            this.destinationPath(this.configOptions.deployFolder)
-        );
 
         this.fs.copy(
             this.templatePath('json-server'),
