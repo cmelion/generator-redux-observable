@@ -1,0 +1,63 @@
+// component styles are encapsulated and only applied to their components
+.home-component{
+
+  .error-message {
+    display: inline-block;
+    background: white;
+    color: red;
+    border-radius: 25px;
+    font-size: 1.2em;
+    padding: .5em 5em;
+    width: auto;
+  }
+  .content {
+    flex-grow: 1;
+  }
+
+  .items {
+    overflow: auto;
+  }
+
+  .item-card.mdl-card {
+    width: 100%;
+    min-height: inherit;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    border-radius: 25px;
+    cursor: default;
+  }
+
+  .item-card .mdl-textfield {
+    width: 100%;
+  }
+  .item-card .mdl-textfield__input {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    display: block;
+    font-size: 16px;
+    margin: 0;
+    padding: 4px 0;
+    width: 100%;
+    background: 0 0;
+    text-align: left;
+    color: inherit;
+  }
+  .item-card label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .list-view{
+    position: relative;
+  }
+  .create-button {
+    right: 25px;
+    top: 15px;
+    position: absolute;
+
+  }
+  button.settings {
+    margin-right: 120px !important;
+  }
+}
+

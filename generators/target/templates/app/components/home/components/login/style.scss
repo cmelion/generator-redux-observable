@@ -1,0 +1,20 @@
+@keyframes fadeInOut {
+   0% {
+       opacity: 0;
+    }
+
+   50% {
+       opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+.login-component{
+   margin: 0 auto;
+   max-width: 300px;
+   -webkit-animation: fadeInOut 1s;
+   animation: fadeInOut 1s;
+}

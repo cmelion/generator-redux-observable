@@ -1,0 +1,10 @@
+verbose: false
+instrumentation:
+  root: ./src/app
+  verbose: true
+  excludes: ["*.spec.js", "spec.js"]
+reporting:
+  dir: "coverage"
+  reports:
+    - html
+    - cobertura

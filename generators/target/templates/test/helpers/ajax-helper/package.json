@@ -1,0 +1,6 @@
+{
+  "name": "ajax-helper",
+  "description": "Mocking tool for rx ajax calls",
+  "version": "0.0.1",
+  "private": true
+}
