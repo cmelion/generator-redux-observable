@@ -10,7 +10,7 @@ RUN apt-get -yq update && \
     apt-get -yq install git net-tools sudo bzip2 && \
     apt-get -yq install libfontconfig
 
-RUN npm install -g --silent yo@1.7.0 generator-tools-seed
+RUN npm install -g --silent yo@1.7.0 generator-redux-observable
 
 # Add a yeoman user because grunt doesn't like being root
 RUN adduser --disabled-password --gecos "" yeoman && \
@@ -31,7 +31,7 @@ ENTRYPOINT ["set_env.sh"]
 # Always run as the yeoman user
 USER yeoman
 
-RUN yo tools-seed --name="client" --clientFolder="src"
+RUN yo redux-observable --name="client" --clientFolder="src"
 
 # Set the host file system mount point
 #VOLUME /home/yeoman/client

@@ -5,8 +5,8 @@
 //var helpers = require('yeoman-test');
 var testHelper = require('./testHelper');
 
-//var generatorFullname = testHelper.mixins.getGeneratorFullname(); // generator-tools-seed
-var generatorShortname = testHelper.mixins.getGeneratorShortname(); // tools-seed
+//var generatorFullname = testHelper.mixins.getGeneratorFullname(); // generator-redux-observable
+var generatorShortname = testHelper.mixins.getGeneratorShortname(); // redux-observable
 
 describe(generatorShortname + ':target', function() {
 
