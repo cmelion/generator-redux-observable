@@ -24,6 +24,7 @@
     "preacceptance": "npm run coverage-clean",
     "precoverage": "npm run coverage-clean",
     "predeploy": "npm run build",
+    "predocker-server": "npm install --quiet",
     "pree2e": "npm run coverage-clean",
     "rimraf": "rimraf",
     "server": "json-server --watch --delay 500 json-server/db.json --id _id --port $npm_package_config_apiPort --routes routes.json",
