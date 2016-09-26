@@ -115,6 +115,7 @@
     "react-stub-context": "0.7.0",
     "recursive-readdir": "2.0.0",
     "redux-mock-store": "1.1.0",
+    "redux-observable-test-helpers": "1.0.0",
     "rimraf": "2.5.2",
     "sass-loader": "3.2.0",
     "semver": "5.1.1",

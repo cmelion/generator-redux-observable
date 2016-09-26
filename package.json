@@ -1,6 +1,6 @@
 {
   "name": "generator-redux-observable",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "An opinionated tool for scaffolding an app using react, redux, rx and webpack",
   "homepage": "https://github.com/cmelion/generator-redux-observable",
   "repository": {
