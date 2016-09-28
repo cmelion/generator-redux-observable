@@ -1,6 +1,7 @@
 
 
-# generator-redux-observable
+# generator-redux-observable  
+[![](https://images.microbadger.com/badges/image/cmelion/generator-redux-observable.svg)](https://microbadger.com/images/cmelion/generator-redux-observable "Get your own image badge on microbadger.com")
 
 An opinionated tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using react, redux and webpack
 
