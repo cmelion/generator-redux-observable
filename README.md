@@ -31,7 +31,9 @@ yo redux-observable [project-name]
 You then have access to the following sub generators:
 * **yo redux-observable:action** (Creates a action)
 * **yo redux-observable:reducer** (Creates a reducer)
-* **yo ng2-webpack:component** (Creates a component)
+* **yo redux-observable:component** (Creates a component)
+
+note:  components are currently react only with ng2 on the roadmap
 
 Resulting in a complete, yet simple, starter for React using redux and Webpack.
 
