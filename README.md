@@ -4,7 +4,6 @@
 Image available on [DockerHub](https://hub.docker.com/r/cmelion/generator-redux-observable/)
 
 [![](https://images.microbadger.com/badges/image/cmelion/generator-redux-observable.svg)](https://microbadger.com/images/cmelion/generator-redux-observable "Get your own image badge on microbadger.com")
-
 note: the DockerHub image is meant to be used from an existing project.  See [Sample Docker Workflow](https://github.com/cmelion/generator-ng2-webpack/wiki/Sample-Docker-Workflow-using-Docker-for-Mac-Beta)
 
 An opinionated tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using react, redux and webpack
