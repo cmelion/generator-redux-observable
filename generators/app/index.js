@@ -139,11 +139,6 @@ module.exports = generators.Base.extend({
         );
 
         this.fs.copy(
-            this.templatePath('deployment'),
-            this.destinationPath(this.configOptions.deployFolder)
-        );
-
-        this.fs.copy(
             this.templatePath('json-server'),
             this.destinationPath('json-server')
         );
@@ -218,81 +213,6 @@ module.exports = generators.Base.extend({
             this.destinationPath('webpack.config.js')
         );
 
-        // Overwrite specific deployment files
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/Dockerfile'),
-            this.destinationPath(this.configOptions.deployFolder, 'Dockerfile'), {
-                appTitle: this.appTitle
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/nginx.conf'),
-            this.destinationPath(this.configOptions.deployFolder, 'nginx.conf'), {
-                appTitle: this.appTitle,
-                serverhostname: this.serverhostname
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/README.md'),
-            this.destinationPath(this.configOptions.deployFolder, 'README.md'), {
-                appTitle: this.appTitle
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/.elasticbeanstalk/config.yml'),
-            this.destinationPath(this.configOptions.deployFolder, '.elasticbeanstalk/config.yml'), {
-                appTitle: this.appTitle
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/terraform/providers/application.tf'),
-            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/application.tf'), {
-                appname: this.appname
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/terraform/providers/terraform.tfvars'),
-            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/terraform.tfvars'), {
-                appTitle: this.appTitle
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/terraform/providers/beta/beta.tf'),
-            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/beta/beta.tf'), {
-                appname: this.appname
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/terraform/providers/beta/terraform.tfvars'),
-            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/beta/terraform.tfvars'), {
-                appTitle: this.appTitle,
-                appShortName: this.appShortName
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/Dockerrun.aws.json'),
-            this.destinationPath(this.configOptions.deployFolder, 'Dockerrun.aws.json'), {
-                appname: this.appname
-            }
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('deployment/scripts/env-vars.js'),
-            this.destinationPath(this.configOptions.deployFolder, 'scripts/env-vars.js'), {
-                appShortName: this.appShortName,
-                serverhostname: this.serverhostname
-
-            }
-        );
     },
 
     conflicts: function() {
