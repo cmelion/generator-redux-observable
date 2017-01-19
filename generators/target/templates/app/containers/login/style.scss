@@ -1,0 +1,110 @@
+
+.login-container {
+  margin: 100px auto;
+  max-width: 300px;
+  animation: fadeInOut 1s;
+
+  .hiddenanchor {
+    display: none;
+  }
+  #tochange-password {
+    &:target {
+      ~ .login-component {
+        .change-password {
+          max-height: 300px;
+        }
+        .tologin {
+          max-height: 100px;
+        }
+        .tochange-password {
+          max-height: 0px;
+        }
+        .login-button {
+          max-height: 0px;
+        }
+      }
+    }
+  }
+  #tochange-email {
+    &:target {
+      ~ .login-component {
+        .change-email {
+          max-height: 300px;
+        }
+        .tologin {
+          max-height: 100px;
+        }
+        .tochange-email {
+          max-height: 0px;
+        }
+        .login-button {
+          max-height: 0px;
+        }
+      }
+    }
+  }
+  .change-email {
+    transition: max-height 1s;
+    overflow: hidden;
+    // "height: 0" does not work with css transitions
+    max-height: 0;
+  }
+  .change-password {
+    transition: max-height 1s;
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  .change-links {
+    margin-bottom: 10px;
+    .tologin {
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 0;
+    }
+    .tochange-password {
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 50px;
+    }
+    .tochange-email {
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 50px;
+    }
+    .change-link {
+      font-size: 11px;
+      color: black;
+      text-align: right;
+      margin-bottom: 0px;
+      padding-right: 15px;
+      a {
+        font-weight: bold;
+        color: rgb(29, 162, 193);
+        margin-left: 10px;
+      }
+    }
+    .login-button {
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 50px;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0.0;
+    }
+  }
+  @-webkit-keyframes blink {
+    50% {
+      opacity: 0.0;
+    }
+  }
+
+  .blink {
+    color: black;
+    animation: blink 1s step-start 0s infinite;
+    -webkit-animation: blink 1s step-start 0s infinite;
+  }
+}

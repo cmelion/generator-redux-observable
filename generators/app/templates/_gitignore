@@ -66,3 +66,6 @@ obj/
 
 # Changelog
 CHANGELOG.md
+
+# JetBrains
+.idea/

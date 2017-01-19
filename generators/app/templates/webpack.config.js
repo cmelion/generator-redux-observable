@@ -58,20 +58,20 @@ module.exports = (function makeWebpackConfig() {
      */
     if (isTestEnv) {
         config.devtool = 'inline-source-map';
-    } else if (ENV === 'build') {
+    } else if (ENV === 'prebuild') {
         config.devtool = false;
     } else {
-        config.devtool = 'cheap-module-eval-source-map';
+        config.devtool = 'inline-source-map';
     }
 
     // add debug messages
-    config.debug = ENV !== 'build' || !isTestEnv;
+    config.debug = ENV !== 'prebuild' || !isTestEnv;
 
     /**
      * Entry
      * Reference: http://webpack.github.io/docs/configuration.html#entry
      */
-    config.entry = isTestEnv || ENV === 'build' ?
+    config.entry = isTestEnv || ENV === 'prebuild' ?
         {
             app: [ './src/app/index.jsx'],
             vendor: [
@@ -89,11 +89,12 @@ module.exports = (function makeWebpackConfig() {
      * Reference: http://webpack.github.io/docs/configuration.html#output
      */
     config.output = isTestEnv ? {} : {
-        path: root('dist'),
-        publicPath: '',
-        filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
-        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
-    };
+            path: root('dist'),
+            // If not set to '/' hot-loading and deep-linking will fail for nested routes
+            publicPath: '/',
+            filename: ENV === 'prebuild' ? 'js/[name].[hash].js' : 'js/[name].js',
+            chunkFilename: ENV === 'prebuild' ? '[id].[hash].chunk.js' : '[id].chunk.js'
+        };
 
     /**
      * Resolve
@@ -106,7 +107,9 @@ module.exports = (function makeWebpackConfig() {
         extensions: prepend(['.jsx', '.js', '.json', '.css', '.scss', '.html'], '.async'), // ensure .async.js etc also works
         alias: {
             'app': 'src/app',
-            'common': 'src/common'
+            'common': 'src/common',
+            'react/lib/ReactMount': 'react-dom/lib/ReactMount',
+            'react/lib/ReactTestUtils': 'react-dom/lib/ReactTestUtils'
         }
     };
 
@@ -117,20 +120,22 @@ module.exports = (function makeWebpackConfig() {
      * This handles most of the magic responsible for converting modules
      */
     config.module = {
-        preLoaders: isTestEnv || isE2ETestEnv ? [] : [{test: /\.js$/, loader: 'eslint'}],
+        preLoaders: isTestEnv || isE2ETestEnv ? [] : [{test: /\.jsx?$/, loader: 'eslint'}],
         exprContextCritical : false,
         loaders: [
             {
                 test: /\.css$/,
-                loaders: ['style', 'css']
+                loader: 'style-loader!css-loader!postcss-loader'
             },
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', 'less']
+                loader: 'style-loader!css-loader!postcss-loader!less-loader'
             },
             {
                 test: /\.scss/,
-                loaders: ['style', 'css', 'scss']
+                loader: ENV === 'prebuild' ?
+                    'style-loader!css-loader!postcss-loader!sass-loader' :
+                    'style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap'
             },
             {
                 test: /\.json$/,
@@ -193,12 +198,12 @@ module.exports = (function makeWebpackConfig() {
             // Environment helpers
             'process.env': {
                 ENV: JSON.stringify(ENV),
-                NODE_ENV: JSON.stringify(ENV === 'build' ? 'production' : 'development')
+                NODE_ENV: JSON.stringify(ENV === 'prebuild' ? 'production' : 'development')
             }
         }),
 
         new HtmlWebpackPlugin({
-            template: './src/public/index.html',
+            template: './public/index.html',
             inject: 'body',
             title: 'App - ' + target
         })
@@ -211,12 +216,12 @@ module.exports = (function makeWebpackConfig() {
             // Reference: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
             new CommonsChunkPlugin({
                 name: 'vendor',
-                filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+                filename: ENV === 'prebuild' ? 'js/[name].[hash].js' : 'js/[name].js',
                 minChunks: Infinity
             }),
             new CommonsChunkPlugin({
                 name: 'common',
-                filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+                filename: ENV === 'prebuild' ? 'js/[name].[hash].js' : 'js/[name].js',
                 minChunks: 2,
                 chunks: ['app', 'vendor']
             }),
@@ -225,7 +230,7 @@ module.exports = (function makeWebpackConfig() {
             // Reference: https://github.com/ampedandwired/html-webpack-plugin
 
             new HtmlWebpackPlugin({
-                template: './src/public/index.html',
+                template: './public/index.html',
                 inject: 'body',
                 title: 'App - ' + target,
                 chunksSortMode: function compare(a, b) {
@@ -258,12 +263,12 @@ module.exports = (function makeWebpackConfig() {
             // Extract css files
             // Reference: https://github.com/webpack/extract-text-webpack-plugin
             // Disabled when in test mode or not in build mode
-            new ExtractTextPlugin('css/[name].[hash].css', {disable: ENV !== 'build'})
+            new ExtractTextPlugin('css/[name].[hash].css', {disable: ENV !== 'prebuild'})
         );
     }
 
     // Add build specific plugins
-    if (ENV === 'build') {
+    if (ENV === 'prebuild') {
         config.plugins.push(
             // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
             // Only emit files when there are no errors
@@ -283,7 +288,7 @@ module.exports = (function makeWebpackConfig() {
                 // dead_code: false,//debug
                 // unused: false,//debug
                 // deadCode: false,//debug
-                // compress : { screw_ie8 : true, keep_fnames: true, drop_debugger: false, dead_code: false, unused: false, }, // debug
+                // compress : { screw_ie8 : true, keep_fƒnames: true, drop_debugger: false, dead_code: false, unused: false, }, // debug
                 // comments: true,//debug
 
                 beautify: false,//prod
@@ -298,7 +303,7 @@ module.exports = (function makeWebpackConfig() {
             // Copy assets from the public folder
             // Reference: https://github.com/kevlened/copy-webpack-plugin
             new CopyWebpackPlugin([{
-                from: root('src/public')
+                from: root('public')
             }])
         );
     }
@@ -310,7 +315,7 @@ module.exports = (function makeWebpackConfig() {
      */
     config.postcss = [
         autoprefixer({
-            browsers: ['last 2 version']
+            browsers: ['last 2 versions']
         })
     ];
 
@@ -320,15 +325,10 @@ module.exports = (function makeWebpackConfig() {
      * Transforms .scss files to .css
      */
     config.sassLoader = {
-        includePaths: [path.resolve(__dirname, './node_modules/material-design-lite/src')]
-    };
-    /**
-     * Apply the tslint loader as pre/postLoader
-     * Reference: https://github.com/wbuchwalter/tslint-loader
-     */
-    config.tslint = {
-        emitErrors: false,
-        failOnHint: false
+        includePaths: [
+            path.resolve(__dirname, "./node_modules/material-design-lite/src"),
+            path.resolve(__dirname, "./node_modules/bootstrap-sass/assets/stylesheets")
+        ]
     };
 
     /**
@@ -338,12 +338,13 @@ module.exports = (function makeWebpackConfig() {
      */
     config.devServer = {
         port: hotMiddleWarePort,
-        contentBase: './src/public',
+        contentBase: './public',
         historyApiFallback: true,
         stats: 'minimal', // none (or false), errors-only, minimal, normal (or true) and verbose
         proxy: [
-            {path: npmConfig.baseURL + '*', target:'http://localhost:' + npmConfig.apiPort},
-            {path:'/login', target:'http://localhost:' + npmConfig.apiPort}
+            {path:'/api/login', pathRewrite: {'^/api' : ''}, target:'http://localhost:' + npmConfig.apiPort},
+            {path:'/info', target:'http://localhost:' + npmConfig.apiPort},
+            {path: npmConfig.baseURL + '**', target:'http://localhost:' + npmConfig.apiPort}
         ]
     };
 

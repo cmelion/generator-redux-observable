@@ -1,0 +1,79 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "raven-common@git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+        "scope": null,
+        "escapedName": "raven-common",
+        "name": "raven-common",
+        "rawSpec": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+        "spec": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:HBOCodeLabs/Raven-Common.git#v0.0.4",
+          "sshUrl": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+          "httpsUrl": "git+https://github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+          "gitUrl": "git://github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+          "shortcut": "github:HBOCodeLabs/Raven-Common#v0.0.4",
+          "directUrl": "https://raw.githubusercontent.com/HBOCodeLabs/Raven-Common/v0.0.4/package.json"
+        }
+      },
+      "/Users/cfulneck/dev/Raven-Client"
+    ]
+  ],
+  "_from": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+  "_id": "raven-common@0.0.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/raven-common",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "raven-common@git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+    "scope": null,
+    "escapedName": "raven-common",
+    "name": "raven-common",
+    "rawSpec": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+    "spec": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:HBOCodeLabs/Raven-Common.git#v0.0.4",
+      "sshUrl": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+      "httpsUrl": "git+https://github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+      "gitUrl": "git://github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+      "shortcut": "github:HBOCodeLabs/Raven-Common#v0.0.4",
+      "directUrl": "https://raw.githubusercontent.com/HBOCodeLabs/Raven-Common/v0.0.4/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#e62057e01ee1e56d7895b12f824336decaa1ca53",
+  "_shasum": "6233c5834b1e615d559bc86a6011c755c7705761",
+  "_shrinkwrap": null,
+  "_spec": "raven-common@git+ssh://git@github.com/HBOCodeLabs/Raven-Common.git#v0.0.4",
+  "_where": "/Users/cfulneck/dev/Raven-Client",
+  "author": {
+    "name": "Home Box Office"
+  },
+  "bugs": {
+    "url": "https://youtrack.hbo.com/youtrack/issues/UT?q=project%3A+%7BUser+Tools%7D+tag%3A+tools-raven"
+  },
+  "dependencies": {},
+  "description": "Shareable code between server and client",
+  "devDependencies": {},
+  "gitHead": "e62057e01ee1e56d7895b12f824336decaa1ca53",
+  "homepage": "https://github.com/HBOCodeLabs/Raven-Common#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "raven-common",
+  "optionalDependencies": {},
+  "readme": "#Raven-Common\n\nIncludes product, client, recipients and status config files for use on the Raven Client and Server\n\nexample usage:\n\n` import {products,clients,recipients,statuses} from 'raven-common'; `\n\n\n\n\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HBOCodeLabs/Raven-Common.git"
+  },
+  "version": "0.0.4"
+}

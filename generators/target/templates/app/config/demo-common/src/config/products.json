@@ -1,0 +1,34 @@
+[
+  {
+    "label": "HBO GO",
+    "value": "hbogo"
+  },
+  {
+    "label": "HBO NOW",
+    "value": "hbonow"
+  },
+  {
+    "label": "MAX GO",
+    "value": "maxgo"
+  },
+  {
+    "label": "HBO GO Latin America",
+    "value": "hbogo_la"
+  },
+  {
+    "label": "HBO GO Brazil",
+    "value": "hbogo_br"
+  },
+  {
+    "label": "HBO.com",
+    "value": "dotcom"
+  },
+  {
+    "label": "Mosaic",
+    "value": "mosaic"
+  },
+  {
+    "label": "Microsite",
+    "value": "microsite"
+  }
+]

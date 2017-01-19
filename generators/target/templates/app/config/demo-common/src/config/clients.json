@@ -1,0 +1,70 @@
+[
+  {
+    "label": "All HBO GO Clients",
+    "value": "all"
+  },
+  {
+    "label": "Amazon FireTV",
+    "value": "firetv"
+  },
+  {
+    "label": "Amazon Kindle Fire",
+    "value": "kindle"
+  },
+  {
+    "label": "Android Mobile",
+    "value": "android"
+  },
+  {
+    "label": "Android TV",
+    "value": "androidtv"
+  },
+  {
+    "label": "Apple TV",
+    "value": "appletv"
+  },
+    {
+    "label": "Apple iPad",
+    "value": "ipad"
+  },
+  {
+    "label": "Apple iPhone",
+    "value": "iphone"
+  },
+  {
+    "label": "Browser Client",
+    "value": "desktop"
+  },
+  {
+    "label": "Enseo",
+    "value": "enseo"
+  },
+  {
+    "label": "Playstation 4",
+    "value": "ps4"
+  },
+  {
+    "label": "Playstation 3",
+    "value": "ps3"
+  },
+  {
+    "label": "Roku",
+    "value": "roku"
+  },
+  {
+    "label": "Samsung TV",
+    "value": "samsung"
+  },
+  {
+    "label": "Tivo",
+    "value": "tivo"
+  },
+  {
+    "label": "XBOX 360",
+    "value": "xbox"
+  },
+  {
+    "label": "XBOX ONE",
+    "value": "xbox_one"
+  }
+]

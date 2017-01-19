@@ -84,7 +84,7 @@ module.exports = generators.Base.extend({
 
         this.fs.copyTpl(
             this.templatePath('public/index.template.html'),
-            this.destinationPath(this.configOptions.clientFolder, 'public/index.html'), {
+            this.destinationPath('public/index.html'), {
                 appname: this.appname
             }
         );
@@ -100,10 +100,9 @@ module.exports = generators.Base.extend({
         );
 
         this.fs.copyTpl(
-            this.templatePath('test/_index.jsx'),
-            this.destinationPath(path.join(this.configOptions.clientFolder, '../test/index.jsx'))
+            this.templatePath('test/spec.js'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, '../spec.js'))
         );
-
 
         this.fs.copy(
             this.templatePath('test/helpers'),

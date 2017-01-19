@@ -1,40 +1,12 @@
 // Import styles from node modules here
 // Use the sassLoader option in webpack.config.js to add any necessary include paths
 
+// Choose a framework ... or not.
+
 /* Material Design Lite */
+@import "app/config/styles/mdl/style";
 
-// Variables and mixins
-//@import "variables";
-//@import "mixins";
+/* Bootstrap */
 
-// Resets and dependencies
-@import "resets/resets";
-@import "typography/typography";
 
-// Components
-@import "palette/palette";
-@import "ripple/ripple";
-//@import "animation/animation";
-//@import "badge/badge";
-@import "button/button";
-@import "card/card";
-//@import "checkbox/checkbox";
-//@import "data-table/data-table";
-//@import "dialog/dialog";
-//@import "footer/mega_footer";
-//@import "footer/mini_footer";
-//@import "icon-toggle/icon-toggle";
-//@import "list/list";
-//@import "menu/menu";
-//@import "progress/progress";
-@import "layout/layout";
-//@import "radio/radio";
-//@import "slider/slider";
-//@import "snackbar/snackbar";
-//@import "spinner/spinner";
-//@import "switch/switch";
-//@import "tabs/tabs";
-@import "textfield/textfield";
-//@import "tooltip/tooltip";
-@import "shadow/shadow";
-//@import "grid/grid";
+/* Vanilla CSS */

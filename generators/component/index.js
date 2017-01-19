@@ -19,6 +19,7 @@ var Generator = module.exports = ComponentGenerator.extend({
 
     initializing: function() {
         Generator.__super__.initializing.apply(this, arguments);
+        this.mixins.beautifyJs();
         this.mixins.beautifyTs();
     },
 
@@ -46,10 +47,11 @@ var Generator = module.exports = ComponentGenerator.extend({
 
     writing: function() {
         var destinationPath = Generator.__super__.writing.apply(this, arguments);
+        console.log('dest. path:', destinationPath, arguments);
         //var componentnameFile = this.componentname; //this.mixins.dasherize(this.componentname); // could be componentname
-
         switch (this.targettype) {
             case 'react':
+
                 this.fs.copyTpl(
                     this.templatePath('_component.js'),
                     this.destinationPath(path.join(destinationPath, 'index.jsx')), {
@@ -65,17 +67,18 @@ var Generator = module.exports = ComponentGenerator.extend({
                         componentnameFile: this.componentnameFile,
                         componentname: this.componentname,
                         componentnameClass: this.componentnameClass,
-                        assertPath: path.relative(path.join(destinationPath, 'spec.js'), path.join('src','app', 'assert')).replace(/\\/g,'/')
+                        assertPath: path.relative(path.join(destinationPath, 'spec.js'), path.join('src', 'app', 'assert')).replace(/\\/g, '/')
                     }
                 );
 
                 this.fs.copyTpl(
                     this.templatePath('_component.scss'),
-                    this.destinationPath(path.join(destinationPath, 'style.scss'))
+                    this.destinationPath(path.join(destinationPath, 'style.scss')), {
+                        componentname: this.componentname
+                    }
                 );
                 break;
         }
-
     }
 
 });

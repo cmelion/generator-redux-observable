@@ -1,0 +1,187 @@
+// Import styles from node modules and perform @extend here to facilitate adding/removing CSS frameworks
+// Use the sassLoader option in webpack.config.js to add any necessary include paths
+
+/* Material Design Lite */
+
+// Variables and mixins
+//@import "variables";
+//@import "mixins";
+
+// Resets and dependencies
+@import "resets/resets";
+@import "typography/typography";
+
+// Components
+@import "palette/palette";
+@import "ripple/ripple";
+//@import "animation/animation";
+//@import "badge/badge";
+@import "button/button";
+@import "card/card";
+//@import "checkbox/checkbox";
+//@import "data-table/data-table";
+//@import "dialog/dialog";
+//@import "footer/mega_footer";
+//@import "footer/mini_footer";
+//@import "icon-toggle/icon-toggle";
+//@import "list/list";
+//@import "menu/menu";
+//@import "progress/progress";
+@import "layout/layout";
+//@import "radio/radio";
+//@import "slider/slider";
+//@import "snackbar/snackbar";
+//@import "spinner/spinner";
+//@import "switch/switch";
+//@import "tabs/tabs";
+@import "textfield/textfield";
+//@import "tooltip/tooltip";
+@import "shadow/shadow";
+@import "grid/grid";
+
+
+// Set up application mixins
+.login-component {
+  @extend .mdl-shadow--6dp, .mdl-card !optional;
+
+  .mdl-card__supporting-text {
+    // make room for error messages
+    padding: 16px 8px;
+  }
+  .mdl-textfield__error {
+    font-size: 10px;
+  }
+
+  .tools-title {
+    @extend .mdl-card__title, .mdl-color--black, .mdl-color-text--white !optional;
+
+    h2 {
+      @extend .mdl-card__title-text !optional;
+    }
+  }
+
+  .mdl-button--colored {
+    background: #337ab7;
+    color: #ffffff;
+    border-radius: 4px;
+  }
+
+}
+
+.header-component {
+  .header-btn {
+    @extend .mdl-button, .mdl-button-raised !optional;
+  }
+
+  .tools-title {
+    @extend .mdl-card__title, .mdl-color--black, .mdl-color-text--white !optional;
+
+    h2 {
+      @extend .mdl-card__title-text !optional;
+    }
+  }
+}
+
+.home-component {
+  .content {
+    @extend .mdl-grid !optional;
+
+    .list-view, .detail-view {
+      @extend .mdl-cell, .mdl-cell--6-col !optional;
+    }
+
+    .item-detail {
+      @extend .mdl-grid, .mdl-shadow--2dp !optional;
+    }
+
+    .history-container {
+      @extend .mdl-cell, .mdl-cell--2-col !optional;
+    }
+
+    .details-container {
+      @extend .mdl-cell--9-col !optional;
+    }
+
+    .tools-title {
+      @extend .mdl-card__title !optional;
+    }
+
+    .tools-title-text {
+      @extend .mdl-card__title-text !optional;
+    }
+
+    .mdl-card__title {
+      padding: 16px 16px 0 16px;
+    }
+  }
+}
+
+.delete-column-button {
+  color: rgb(255,64,129);
+  @extend .mdl-button, mdl-button--accent !optional;
+
+  i {
+    @extend .material-icons !optional;
+  }
+}
+
+.tools-field-set {
+  @extend .mdl-textfield, .mdl-textfield--floating-label, .mdl-textfield--floating-label, .extrawide !optional;
+}
+
+.color-text--red {
+  @extend .mdl-color-text--red !optional;
+}
+
+// Overrides
+//Fix Material Design rendering inputs as invalid before interaction
+form {
+  .mdl-textfield__label {
+    color: inherit;
+  }
+
+  .mdl-textfield--floating-label{
+    .mdl-textfield__input:-webkit-autofill ~ .mdl-textfield__label {
+      top: 4px;
+      font-size: 12px !important;
+    }
+  }
+
+  &:not(.invalid) {
+
+    .mdl-textfield.is-invalid {
+      input:invalid, textarea:invalid {
+        border-color: rgba(0,0,0, 0.12);
+        &:focus {
+          border-color: rgb(63, 81, 181);
+        }
+      }
+
+      .mdl-textfield__error {
+        visibility: hidden;
+      }
+
+      &.is-focused  {
+        .mdl-textfield__label {
+          font-size: 12px;
+          color: orange;
+          &:after {
+            background-color: orange;
+          }
+        };
+        .mdl-textfield__error {
+          visibility: visible;
+          color: grey;
+        }
+      }
+
+      .mdl-textfield__label {
+        color: inherit;
+        font-size: inherit;
+        &:after {
+          background-color: inherit;
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "name": "generator-redux-observable",
-  "version": "0.5.4",
+  "name": "generator-tools-seed",
+  "version": "0.5.0",
   "description": "An opinionated tool for scaffolding an app using react, redux, rx and webpack",
-  "homepage": "https://github.com/cmelion/generator-redux-observable",
+  "homepage": "https://github.com/HBOCodeLabs/generator-tools-seed",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cmelion/generator-redux-observable"
+    "url": "git://github.com/HBOCodeLabs/generator-tools-seed"
   },
   "engines": {
     "node": ">= 4.2.1 <= 6.2.0"
@@ -21,7 +21,7 @@
   },
   "author": {
     "name": "Charles Fulnecky",
-    "email": "charles.fulnecky@gmail.com",
+    "email": "charles.fulnecky@hbo.com",
     "url": "https://github.com/cmelion"
   },
   "files": [
@@ -58,7 +58,7 @@
     "strip-json-comments": "^2.0.1",
     "underscore.string": "^3.2.3",
     "update-notifier": "^0.6.0",
-    "yeoman-generator": "^0.22.4",
+    "yeoman-generator": "^0.22.6",
     "yeoman-option-or-prompt": "^1.0.2",
     "yosay": "^1.1.0"
   },

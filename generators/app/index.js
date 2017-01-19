@@ -82,6 +82,12 @@ module.exports = generators.Base.extend({
             },
             {
                 type: 'input',
+                name: 'serverhostname',
+                message: 'What is the server host name for your project?',
+                default: this.mixins.hostify(this.appname)
+            },
+            {
+                type: 'input',
                 name: 'clientFolder',
                 message: 'In which folder would you like your scripts?',
                 default: 'src'
@@ -101,14 +107,16 @@ module.exports = generators.Base.extend({
     },
 
     configuring: function() {
+        this.config.set('appname', this.appname);
+        this.config.set('appShortName', this.appname.split('-')[0]);
+        this.config.set('appTitle', this.appTitle);
+        this.config.set('clientFolder', this.answers.clientFolder);
+        this.config.set('currentYear', new Date().getFullYear());
+        this.config.set('deployFolder', 'deployment');
         this.config.set('filenameCase', this.filenameCase);
         this.config.set('filenameSuffix', this.filenameSuffix);
-        this.config.set('appname', this.appname);
-        this.config.set('appTitle', this.appTitle);
-        this.config.set('appShortName', this.appname.split('-')[0]);
-        this.config.set('clientFolder', this.answers.clientFolder);
-        this.config.set('testFolder', 'test');
         this.config.set('serverhostname', this.answers.serverhostname);
+        this.config.set('testFolder', 'test');
         this.composeWith(this.mixins.getGeneratorShortname() + ':target', {
             //args: this.options.target ? [this.options.target] : null,
             options: {
@@ -124,6 +132,16 @@ module.exports = generators.Base.extend({
         this.mixins.createDirSync(this.destinationPath(this.answers.clientFolder));
         //this.mixins.createDirSync('test');
         //this.fs.write(this.destinationPath('test/.gitignore'), '');
+
+        this.fs.copy(
+            this.templatePath('.idea'),
+            this.destinationPath('.idea')
+        );
+
+        this.fs.copy(
+            this.templatePath('deployment'),
+            this.destinationPath(this.configOptions.deployFolder)
+        );
 
         this.fs.copy(
             this.templatePath('json-server'),
@@ -195,12 +213,86 @@ module.exports = generators.Base.extend({
             this.destinationPath('routes.json')
         );
 
-
         this.fs.copyTpl(
             this.templatePath('webpack.config.js'),
             this.destinationPath('webpack.config.js')
         );
 
+        // Overwrite specific deployment files
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/Dockerfile'),
+            this.destinationPath(this.configOptions.deployFolder, 'Dockerfile'), {
+                appTitle: this.appTitle
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/nginx.conf'),
+            this.destinationPath(this.configOptions.deployFolder, 'nginx.conf'), {
+                appTitle: this.appTitle,
+                serverhostname: this.serverhostname
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/README.md'),
+            this.destinationPath(this.configOptions.deployFolder, 'README.md'), {
+                appTitle: this.appTitle
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/.elasticbeanstalk/config.yml'),
+            this.destinationPath(this.configOptions.deployFolder, '.elasticbeanstalk/config.yml'), {
+                appTitle: this.appTitle
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/terraform/providers/application.tf'),
+            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/application.tf'), {
+                appname: this.appname
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/terraform/providers/terraform.tfvars'),
+            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/terraform.tfvars'), {
+                appTitle: this.appTitle
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/terraform/providers/beta/beta.tf'),
+            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/beta/beta.tf'), {
+                appname: this.appname
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/terraform/providers/beta/terraform.tfvars'),
+            this.destinationPath(this.configOptions.deployFolder, 'terraform/providers/beta/terraform.tfvars'), {
+                appTitle: this.appTitle,
+                appShortName: this.appShortName
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/Dockerrun.aws.json'),
+            this.destinationPath(this.configOptions.deployFolder, 'Dockerrun.aws.json'), {
+                appname: this.appname
+            }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('deployment/scripts/env-vars.js'),
+            this.destinationPath(this.configOptions.deployFolder, 'scripts/env-vars.js'), {
+                appShortName: this.appShortName,
+                serverhostname: this.serverhostname
+
+            }
+        );
     },
 
     conflicts: function() {

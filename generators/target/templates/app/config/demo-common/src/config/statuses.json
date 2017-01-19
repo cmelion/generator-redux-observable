@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Identified",
+    "value": "identified"
+  },
+  {
+    "label": "Investigating",
+    "value": "investigating"
+  },
+  {
+    "label": "Resolved",
+    "value": "resolved"
+  }
+]

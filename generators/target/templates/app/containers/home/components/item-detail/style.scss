@@ -1,0 +1,79 @@
+.item-detail {
+  overflow: visible;
+
+  form.invalid {
+    .invalid-control, input:invalid{
+      border: 2px solid red;
+    }
+
+    .Select-input input:invalid{
+      border: none;
+    }
+  }
+
+  .fromTime {
+    color: #333;
+  }
+  form {
+    padding :0 1em 1em 0;
+    margin-bottom: 0;
+    color: black;
+    label {
+      display:block;
+      margin-top: 1em;
+    }
+  }
+
+  label {
+    span {
+      color: gray;
+    }
+  }
+  .resize-quill {
+    resize: vertical;
+    overflow: hidden;
+    height: 180px;
+    padding: 0 5px 5px 0;
+    cursor: ns-resize;
+  }
+  .quill {
+    background : rgba(255,255,255,.5);
+    cursor: auto;
+    height: 100%;
+    .ql-toolbar {
+      background: white;
+    }
+    .ql-container {
+      height: auto;
+
+    }
+  }
+
+  /*  hack to keep history next to form data on macbook  */
+  @media screen and ( min-height: 750px ) and ( max-height: 850px ){
+    zoom: .9;
+  }
+
+  .Select--multi {
+    .Select-aria-only {
+      display: none;
+    }
+    .Select-value-icon {
+      width: .9em;
+      height: 1.7em;
+      overflow: hidden;
+      visibility: hidden;
+
+      &:hover:before {
+        color: black;
+      }
+
+      &:before {
+        visibility: visible;
+        content: 'x';
+      }
+    }
+  }
+
+}
+
