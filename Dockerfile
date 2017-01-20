@@ -1,5 +1,5 @@
 # Yeoman with some generators and prerequisites
-FROM node:4.4.3-slim
+FROM node:6.9-slim
 
 MAINTAINER cfulnecky <charles.fulnecky@hbo.com>
 
