@@ -1,5 +1,5 @@
 # Yeoman with some generators and prerequisites
-FROM node:6.9.0-slim
+FROM node:6.3.0-slim
 
 MAINTAINER cmelion <cfulnecky@gmail.com>
 
@@ -34,7 +34,7 @@ USER yeoman
 RUN yo redux-observable --name="client" --clientFolder="src"
 
 # Set the host file system mount point
-VOLUME /home/yeoman/client
+#VOLUME /home/yeoman/client
 
 # Expose the port
 EXPOSE 2368 3000 5000 8000 8080 8983 9200
