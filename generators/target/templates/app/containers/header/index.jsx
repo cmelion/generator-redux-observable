@@ -43,7 +43,7 @@ export const Header = ({loggedIn, loggingIn, logout, user, ...rest}) => {
                             :
                             <Link className={logoutBtnClasses} to="/login" >Login</Link>
                     }
-                    <a className="help" href="https://github.com/HBOCodeLabs/generator-tools-seed" title="Questions?">
+                    <a className="help" href="https://github.com/cmelion/generator-redux-observable" title="Questions?">
                         <i className="material-icons">help_outline</i>
                     </a>
                 </div>
