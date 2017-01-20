@@ -27,7 +27,7 @@ export const api = {
 
 // Epics start here
 const initializeItemsEpic = action$ =>
-    action$.ofType(LoginActionTypes.LOGIN)
+    action$.ofType(LoginActionTypes.LOGIN_PENDING)
         .mapTo(Actions.pendingAction('', ActionTypes.LOAD_ITEMS));
 
 /* eslint-disable max-params */
