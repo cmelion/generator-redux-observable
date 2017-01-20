@@ -29,7 +29,7 @@ export const Header = ({loggedIn, loggingIn, logout, user, ...rest}) => {
                 <Hamburger target={LEFT_NAV} {...rest}/>
                 <Link to="/home">
                     <div className="logo"/>
-                    <h1 className="title">Tools</h1>
+                    <h1 className="title">Redux-Observable FTW</h1>
                 </Link>
                 <div className="header-btns">
                     {
