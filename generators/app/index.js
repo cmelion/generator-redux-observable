@@ -194,6 +194,11 @@ module.exports = generators.Base.extend({
         );
 
         this.fs.copyTpl(
+            this.templatePath('docker-compose.yml'),
+            this.destinationPath('docker-compose.yml')
+        );
+
+        this.fs.copyTpl(
             this.templatePath('protractor.acceptance.conf.js'),
             this.destinationPath('protractor.acceptance.conf.js')
         );
