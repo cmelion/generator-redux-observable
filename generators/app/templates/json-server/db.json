@@ -1,9 +1,9 @@
 {
   "info": {
-    "name": "Toolshed-Server",
+    "name": "Tools-Server",
     "version": "9.9.9",
     "description": "Employee Portal",
-    "host": "server.tools.hbo.com"
+    "host": "server.tools.test.com"
   },
   "items": [
     {
@@ -30,8 +30,8 @@
       "name": "Title 1 - edited",
       "description": "<div>Some description.</div><div>We found some more stuff.</div><div>And still more stuff.</div><div>Still lots and lots of stuff</div><div>how much longer?</div><div>this is insane</div>",
       "products": [
-        "hbogo",
-        "hbonow"
+        "go",
+        "now"
       ],
       "clients": [
         "appleios",
@@ -62,7 +62,7 @@
         "access": true,
         "firstName": "Test",
         "lastName": "Testerson",
-        "email": "test.testerson@hbo.com"
+        "email": "test.testerson@test.com"
       },
       "lastModifiedBy": {
         "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
@@ -70,14 +70,14 @@
         "access": true,
         "firstName": "Test",
         "lastName": "Testerson",
-        "email": "test.testerson@hbo.com"
+        "email": "test.testerson@test.com"
       },
       "createdDate": "2016-07-11T23:27:09.059Z",
       "lastModifiedDate": "2016-07-11T23:27:09.059Z",
       "name": "Title 1 - edited",
       "description": "<div>Some description.</div><div>We found some more stuff.</div><div>And still more stuff.</div><div>Still lots and lots of stuff</div><div>how much longer?</div><div>this is insane</div>",
       "products": [
-        "hbogo"
+        "go"
       ],
       "clients": [
         "desktop"
@@ -110,7 +110,7 @@
       "name": "test",
       "description": "<div>test</div>",
       "products": [
-        "hbonow"
+        "now"
       ],
       "clients": [
         "appleios",
@@ -126,12 +126,12 @@
     "password": "TEST"
   },
   "sampleUser": {
-    "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+    "roleId": "b91b0f63-199e-46e2-a64e-a453216b7dc8",
     "role": "Manager",
     "access": true,
     "firstName": "Test",
     "lastName": "Testerson",
     "email": "test.testerson@test.com",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlSWQiOiJiNzFiMGY2My0xOTllLTQ2ZTItYTY0ZS1hNDUzMjE2YjdkYzgiLCJyb2xlIjoiTWFuYWdlciIsImFjY2VzcyI6dHJ1ZSwiZmlyc3ROYW1lIjoiQ2hhcmxlcyIsImxhc3ROYW1lIjoiRnVsbmVja3kiLCJlbWFpbCI6ImNoYXJsZXMuZnVsbmVja3lAaGJvLmNvbSIsImlhdCI6MTQ2ODM0MTI3NSwiZXhwIjoxNDY4Mzg0NDc1fQ.PIoiYU-HU4vPk5AGVOHqnMyJNz5E2oaKOSXP7fonTYA"
+    "token": "PIoiYU-HU4vPk5AGVOHqnMyJNz5E2oaKOSXP7fonTYA"
   }
 }

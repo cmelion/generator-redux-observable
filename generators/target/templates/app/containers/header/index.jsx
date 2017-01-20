@@ -34,7 +34,7 @@ export const Header = ({loggedIn, loggingIn, logout, user, ...rest}) => {
                 <div className="header-btns">
                     {
                         (loggedIn) ?
-                            <span className="greeting">{`Hello ${user.firstName}`}</span>
+                            <span className="greeting">{`Hello ${user.firstName || user.email}`}</span>
                             : null
                     }
                     {

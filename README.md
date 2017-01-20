@@ -31,7 +31,7 @@ yo redux-observable [project-name]
 
 You then have access to the following sub generators:
 * **yo redux-observable:action** (Creates a action)
-* **yo redux-observable:reducer** (Creates a reducer)
+* **yo redux-observable:epic** (Creates a epic)
 * **yo redux-observable:component** (Creates a component)
 
 note:  components are currently react only with ng2 on the roadmap
