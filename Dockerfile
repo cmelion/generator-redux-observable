@@ -10,7 +10,7 @@ RUN apt-get -yq update && \
     apt-get -yq install git net-tools sudo bzip2 && \
     apt-get -yq install libfontconfig
 
-RUN npm install -g --silent yo@1.8.5 generator-redux-observable
+RUN npm install -g --silent yo@1.7.0 generator-redux-observable
 
 # Add a yeoman user because grunt doesn't like being root
 RUN adduser --disabled-password --gecos "" yeoman && \
