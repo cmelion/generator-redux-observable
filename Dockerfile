@@ -31,7 +31,7 @@ ENTRYPOINT ["set_env.sh"]
 # Always run as the yeoman user
 USER yeoman
 
-RUN yo redux-observable --name="client" --clientFolder="src"
+RUN yo redux-observable --name="client" --clientFolder="src" --serverhostname="client"
 
 # Set the host file system mount point
 #VOLUME /home/yeoman/client
