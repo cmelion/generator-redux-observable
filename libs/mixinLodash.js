@@ -8,7 +8,7 @@ var _s = require('underscore.string');
  */
 var camelize = function(str) {
     return _.camelCase(str);
-};
+}
 
 /**
  * Clean & pascalize a string
@@ -37,7 +37,6 @@ var hostify = function(str) {
     return _.chain(str).kebabCase().split('-').value()[0].toUpperCase().concat('_SERVER_HOST');
 };
 
-
 /**
  * Clean & upper-casify a string
  * @param {String} str - The original string
@@ -61,6 +60,26 @@ var casify = function(str) {
     return str;
 };
 
+
+/**
+ * Get the string back with the correct file casing as defined by SnakeCase
+ * @param {String} str - The original string
+ * @returns {{String} - A string with the correct casing (i.e. snake-case)
+ */
+var snakify = function(str) {
+    return _.snakeCase(str);
+};
+
+/**
+ * Get the string back with the correct file casing as defined by SnakeCase
+ * @param {String} str - The original string
+ * @returns {{String} - A string with the correct casing (i.e. snake-case)
+ */
+var actionify = function(str) {
+    return _.snakeCase(str).toUpperCase();
+};
+
+
 /**
  * Append the component type suffix if filenameSuffix is set to true in the .yo-rc.json
  * @param {String} str - The original string
@@ -83,6 +102,7 @@ var suffixify = function(str, suffix) {
 module.exports = {
     extend: function(generator) {
         var mixins = generator.mixins = generator.mixins || {};
+        mixins.actionify = actionify.bind(generator);
         mixins.camelize = camelize.bind(generator);
         mixins.casify = casify.bind(generator);
         mixins.classify = classify.bind(generator);

@@ -58,7 +58,7 @@ var getClientTargets = function(clientFolder) {
  */
 var getClientModules = function(clientFolder, moduleName) {
     var results = [];
-    var charCountToIgnore = 'src/app/components/'.length;
+    var charCountToIgnore = 'src/app/containers/'.length;
 
     moduleName = moduleName || 'app';
 
@@ -69,7 +69,13 @@ var getClientModules = function(clientFolder, moduleName) {
     var pathdir = this.destinationPath(pathString);
 
     if (!fs.existsSync(pathdir)) {
-        return [];
+
+        pathString = path.join(clientFolder, moduleName, 'containers');
+        pathdir = this.destinationPath(pathString);
+
+        if (!fs.existsSync(pathdir)) {
+            return [];
+        }
     }
 
     var result = fs.readdirSync(pathdir)
@@ -97,7 +103,7 @@ var getClientModules = function(clientFolder, moduleName) {
  * @returns {String} - The suffix name of the target application
  */
 var targetnameToSuffix = function(targetname) {
-    return targetname === 'app' ? '' : 'app/components/' + targetname;
+    return targetname === 'app' ? '' : 'app/containers/' + targetname;
 };
 
 /**
