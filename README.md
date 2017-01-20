@@ -1,19 +1,20 @@
 
 
-# generator-tools-seed
-
+# generator-redux-observable  
 An opinionated tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using react, redux and webpack
 
+Image available on [DockerHub](https://hub.docker.com/r/cmelion/generator-redux-observable/)
+[![](https://images.microbadger.com/badges/image/cmelion/generator-redux-observable.svg)](https://microbadger.com/images/cmelion/generator-redux-observable "Get your own image badge on microbadger.com")
 
-[Sample generator output](//github.com/tbd)
+note: the DockerHub image is meant to be used from an existing project.  See [Sample Docker Workflow](https://github.com/cmelion/generator-ng2-webpack/wiki/Sample-Docker-Workflow-using-Docker-for-Mac-Beta)
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-tools-seed using [npm](https://www.npmjs.com/). If you don't already have node.js/npm installed, we recommend using [nvm](https://github.com/creationix/nvm) (windows users may want to consult the [wiki](https://github.com/cmelion/generator-ng2-webpack/wiki/NVM-installation-for-Windows)).
+First, install [Yeoman](http://yeoman.io) and generator-redux-observable using [npm](https://www.npmjs.com/). If you don't already have node.js/npm installed, we recommend using [nvm](https://github.com/creationix/nvm) (windows users may want to consult the [wiki](https://github.com/cmelion/generator-ng2-webpack/wiki/NVM-installation-for-Windows)).
 
 ```bash
 npm install -g yo
-npm install -g git+https://git@github.com:HBOCodeLabs/generator-tools-seed.git
+npm install -g generator-redux-observable
 ```
 
 Then generate your new project:
@@ -25,14 +26,15 @@ $mkdir my-app
 # change directory to your app
 $ cd my-app
 
-yo tools-seed [project-name]
+yo redux-observable [project-name]
 ```
 
 You then have access to the following sub generators:
-* **yo tools-seed:action** (Creates a action)
-* **yo tools-seed:component** (Creates a component)
-* **yo tools-seed:epic** (Creates an epic)
-* **yo tools-seed:reducer** (Creates a reducer)
+* **yo redux-observable:action** (Creates a action)
+* **yo redux-observable:reducer** (Creates a reducer)
+* **yo redux-observable:component** (Creates a component)
+
+note:  components are currently react only with ng2 on the roadmap
 
 Resulting in a complete, yet simple, starter for React using redux and Webpack.
 
@@ -112,7 +114,7 @@ $mkdir my-app
 # change directory to your app
 $ cd my-app
 
-yo tools-seed [project-name]
+yo redux-observable [project-name]
 ```
 That's it!
 
@@ -122,8 +124,6 @@ After you have installed all dependencies you can now run the app with:
 ```bash
 npm start
 ```
-
-Alternatively you can start the client and server tasks independently
 
 It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:2368`.
 
