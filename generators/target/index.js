@@ -101,7 +101,7 @@ module.exports = generators.Base.extend({
 
         this.fs.copyTpl(
             this.templatePath('test/spec.js'),
-            this.destinationPath(path.join(this.configOptions.clientFolder, '../spec.js'))
+            this.destinationPath(path.join(this.configOptions.clientFolder, '../test/spec.js'))
         );
 
         this.fs.copy(
