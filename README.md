@@ -3,6 +3,9 @@
 # generator-redux-observable  
 An opinionated tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using react, redux and webpack
 
+Coming Soon: Angular2 support (see [Zoo Animals](https://github.com/angular-redux/example-app) )
+
+
 Image available on [DockerHub](https://hub.docker.com/r/cmelion/generator-redux-observable/)
 [![](https://images.microbadger.com/badges/image/cmelion/generator-redux-observable.svg)](https://microbadger.com/images/cmelion/generator-redux-observable "Get your own image badge on microbadger.com")
 
