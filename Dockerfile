@@ -1,5 +1,5 @@
 # Yeoman with some generators and prerequisites
-FROM node:slim
+FROM node:6.10.0-slim
 
 MAINTAINER cmelion <cfulnecky@gmail.com>
 
