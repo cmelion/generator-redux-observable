@@ -31,6 +31,8 @@ ENTRYPOINT ["set_env.sh"]
 # Always run as the yeoman user
 USER yeoman
 
+RUN npm install -g nodemon
+
 RUN yo redux-observable --name="client" --clientFolder="src" --serverhostname="client"
 
 # Set the host file system mount point
