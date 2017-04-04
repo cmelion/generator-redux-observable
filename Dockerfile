@@ -35,6 +35,8 @@ RUN npm install -g nodemon
 
 RUN yo redux-observable --name="client" --clientFolder="src" --serverhostname="client"
 
+RUN npm install
+
 # Set the host file system mount point
 #VOLUME /home/yeoman/client
 
